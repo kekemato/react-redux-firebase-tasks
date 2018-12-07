@@ -8,6 +8,11 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <div>
+            <Link to="/counter" ><p>Counter</p></Link>
+            <Link to="/passing-props" ><p>PassingProps</p></Link>
+            <Link to="/counter-with-start-value" ><p>Counter wtih start value 15</p></Link>
+          </div>
           <Route path="/" exact={true} component={Counter} />
           <Route path="/counter" component={Counter} />
           <Route path="/passing-props" component={() => <PassingProps
