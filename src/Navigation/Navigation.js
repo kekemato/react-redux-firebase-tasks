@@ -14,7 +14,6 @@ class Navigation extends React.Component {
         return (
             <div>
                 <AppBar
-                    title={this.props.title}
                     onLeftIconButtonClick={this.toggleDrawer}
                 />
 

@@ -3,6 +3,7 @@ import Counter from './Counter'
 import PassingProps from './PassingProps'
 import FetchUsers from './FetchUsers'
 import SyncUsers from './SyncUsers'
+import Add from './Add'
 
 export const routes = [
     {
@@ -43,5 +44,11 @@ export const routes = [
         path: '/sync-users',
         label: 'Sync Users',
         key: 'hfnup'
+    },
+    {
+        component: Add,
+        path: '/add',
+        label: 'Add',
+        key: 'pejfyw'
     }
 ]

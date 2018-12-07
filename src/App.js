@@ -13,7 +13,6 @@ class App extends Component {
         <div>
           <div>
             <Navigation
-              title="React tasks"
               keyChildProp="to">
               {routes.map(component =>
                 <Link

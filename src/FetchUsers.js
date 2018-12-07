@@ -16,7 +16,7 @@ class FetchUsers extends React.Component {
                 {
                     this.state.users &&
                     this.state.users.map &&
-                    this.state.users.map(user => <p>{user.email}</p>)
+                    this.state.users.map(user => <p key={user.login.uuid}>{user.email}</p>)
                 }
             </div>
         )
