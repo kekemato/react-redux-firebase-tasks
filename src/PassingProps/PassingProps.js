@@ -9,5 +9,4 @@ const PassingProps = props =>
         />
     </div>
 
-
 export default PassingProps
