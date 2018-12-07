@@ -1,25 +1,28 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { inputOneChangeHandler, inputTwoChangeHandler } from './state/add';
+import { inputOneChangeAction, inputTwoChangeAction } from './state/add';
 
 const Add = props => (
     <div>
-        <h1>Result: {props._result}</h1>
+        <h1>Result: {props._inputOne + props._inputTwo || 'Wprowadź liczby'}</h1>
         <input
-            onChange={props._inputOneChangeHandler}
+            type='number'
+            onChange={props._inputOneChangeAction}
         />
         <input
-            onChange={props._inputTwoChangeHandler}
+            type='number'
+            onChange={props._inputTwoChangeAction}
         />
     </ div>
 )
 const mapStateToProps = state => ({
-    _result: state.add.result
+    _inputOne: state.add.inputOne,
+    _inputTwo: state.add.inputTwo
 })
 
 const mapDispatchToProps = dispatch => ({
-    _inputOneChangeHandler: event => dispatch(inputOneChangeHandler(parseInt(event.target.value))),
-    _inputTwoChangeHandler: event => dispatch(inputTwoChangeHandler(parseInt(event.target.value)))
+    _inputOneChangeAction: event => dispatch(inputOneChangeAction(parseInt(event.target.value))),
+    _inputTwoChangeAction: event => dispatch(inputTwoChangeAction(parseInt(event.target.value)))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Add)

@@ -1,35 +1,32 @@
-const INPUT_ONE_CHANGE_HANDLER = 'INPUT_ONE_CHANGE_HANDLER'
-const INPUT_TWO_CHANGE_HANDLER = 'INPUT_TWO_CHANGE_HANDLER'
+const INPUT_ONE_CHANGE = 'INPUT_ONE_CHANGE'
+const INPUT_TWO_CHANGE = 'INPUT_TWO_CHANGE'
 
 const INITIAL_STATE = {
-    inputOne: false,
-    inputTwo: false,
-    result: false
+    inputOne: 0,
+    inputTwo: 0,
 }
 
-export const inputOneChangeHandler = number => ({
-    type: INPUT_ONE_CHANGE_HANDLER,
+export const inputOneChangeAction = number => ({
+    type: INPUT_ONE_CHANGE,
     number
 })
 
-export const inputTwoChangeHandler = number => ({
-    type: INPUT_TWO_CHANGE_HANDLER,
+export const inputTwoChangeAction = number => ({
+    type: INPUT_TWO_CHANGE,
     number
 })
 
 export default (state=INITIAL_STATE, action) => {
     switch (action.type) {
-        case INPUT_ONE_CHANGE_HANDLER:
+        case INPUT_ONE_CHANGE:
         return {
             ...state,
-            inputOne: action.number,
-            result: action.number + state.inputTwo
+            inputOne: action.number || 0,
         }
-        case INPUT_TWO_CHANGE_HANDLER:
+        case INPUT_TWO_CHANGE:
         return {
             ...state,
-            inputTwo: action.number,
-            result: action.number + state.inputOne
+            inputTwo: action.number || 0,
         }
         default:
         return state
