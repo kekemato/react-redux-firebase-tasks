@@ -1,13 +1,12 @@
 import React from 'react'
-import PassingPropsPrim from './PassingPropsPrim'
+import PassingPropsBis from './PassingPropsBis'
 
-const PassingProps = props =>
+const PassingPropsPrim = props =>
     <div>
-        <PassingPropsPrim
+        <PassingPropsBis
             passingValue={props.passingValue}
             passingFun={props.passingFun}
         />
     </div>
 
-
-export default PassingProps
+export default PassingPropsPrim
