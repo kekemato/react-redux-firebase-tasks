@@ -1,39 +1,25 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { inputOneChangeHandler, inputTwoChangeHandler } from './state/add';
 
-class Add extends React.Component {
-    state = {
-        inputOne: false,
-        inputTwo: false,
-        result: false
-    }
+const Add = props => (
+    <div>
+        <h1>Result: {props._result}</h1>
+        <input
+            onChange={props._inputOneChangeHandler}
+        />
+        <input
+            onChange={props._inputTwoChangeHandler}
+        />
+    </ div>
+)
+const mapStateToProps = state => ({
+    _result: state.add.result
+})
 
-    inputOneChangeHandler = event => {
-        this.setState({
-            inputOne: parseInt(event.target.value),
-            result: (parseInt(event.target.value) + this.state.inputTwo)
-        })
-    }
+const mapDispatchToProps = dispatch => ({
+    _inputOneChangeHandler: event => dispatch(inputOneChangeHandler(parseInt(event.target.value))),
+    _inputTwoChangeHandler: event => dispatch(inputTwoChangeHandler(parseInt(event.target.value)))
+})
 
-    inputTwoChangeHandler = event => {
-        this.setState({
-            inputTwo: parseInt(event.target.value),
-            result: (this.state.inputOne + parseInt(event.target.value))
-        })
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>Result: {this.state.result}</h1>
-                <input
-                    onChange={this.inputOneChangeHandler}
-                />
-                <input
-                    onChange={this.inputTwoChangeHandler}
-                />
-            </ div>
-        )
-    }
-}
-
-export default Add
+export default connect(mapStateToProps, mapDispatchToProps)(Add)
