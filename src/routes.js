@@ -1,6 +1,7 @@
 import React from 'react'
 import Counter from './Counter'
 import PassingProps from './PassingProps'
+import FetchUsers from './FetchUsers'
 
 export const routes = [
     {
@@ -29,5 +30,11 @@ export const routes = [
         path: '/counter-with-start-value',
         label: 'Counter with start value 15',
         key: 'gsssgj',
+    },
+    {
+        component: FetchUsers,
+        path: '/fetch-users',
+        label: 'Fetch Users',
+        key: 'hfdsf'
     }
 ]
