@@ -21,8 +21,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    _inputOneChangeAction: event => dispatch(inputOneChangeAction(parseInt(event.target.value))),
-    _inputTwoChangeAction: event => dispatch(inputTwoChangeAction(parseInt(event.target.value)))
+    _inputOneChangeAction: event => dispatch(inputOneChangeAction(Number(event.target.value))),
+    _inputTwoChangeAction: event => dispatch(inputTwoChangeAction(Number(event.target.value)))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Add)
